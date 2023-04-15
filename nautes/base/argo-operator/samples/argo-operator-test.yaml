@@ -1,0 +1,18 @@
+apiVersion: nautes.resource.nautes.io/v1alpha1
+kind: CodeRepo
+metadata:
+  name: repo-22
+  namespace: nautes
+spec:
+  codeRepoProvider: argo-codeRepoProvider-test
+  product: argo-product-test
+  repoName: argo-operator
+  # url: ssh://git@gitlab.bluzin.io:2222/nautes-labs/argo-operator1.git
+  pipelineRuntime: false
+  deploymentRuntime: true
+  webhook:
+    events:
+      - PushEvents
+      - TagPushEvents
+      - TestEvents
+    isolation: exclusive

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nautes-configs
+  namespace: nautes
+data:
+  config: |
+    nautes:
+      tenantName: "{{ tenant_name }}"
+      runtimeTemplateSource: "{{ runtime_template_source }}"
+    OAuth:
+      OAuthType: "dex"
+      issuer: "{{ oauth_url }}"
+      clientID: "nautes"
+      clientSecret: "{{ dex_client_secret }}"
+    git:
+      addr: "{{ gitlab_external_url }}"
+      gitType: gitlab
+    secret:
+      vault:
+        mountPath: "{{ tenant_name }}"
+        addr: "{{ vault_url }}"
+        proxyAddr: "{{ vault_proxy_url }}"
+        CABundle: |
+{{ ca_info | indent( width=10, indentfirst=True) }}

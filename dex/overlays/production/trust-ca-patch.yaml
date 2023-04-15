@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dex
+  namespace: dex
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: dex
+        env:
+        - name: SSL_CERT_DIR
+          value: /opt/issuer-ca
+        volumeMounts:
+        - name: issuer-ca
+          mountPath: /opt/issuer-ca
+      volumes:
+      - name: issuer-ca
+        secret:
+          secretName: issuer-ca
+ 

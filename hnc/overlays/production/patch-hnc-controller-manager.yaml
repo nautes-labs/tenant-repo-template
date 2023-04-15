@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hnc-controller-manager
+  namespace: hnc-system
+spec:
+  template:
+    spec:
+      containers:
+      - name: manager
+        args:
+        - --webhook-server-port=9443
+        - --metrics-addr=:8080
+        - --max-reconciles=10
+        - --apiserver-qps-throttle=50
+        - --excluded-namespace=kube-system
+        - --excluded-namespace=kube-public
+        - --excluded-namespace=hnc-system
+        - --excluded-namespace=kube-node-lease
+        - --excluded-namespace=nautes
+        - --excluded-namespace=argocd
+        - --excluded-namespace=argo-events
+        - --excluded-namespace=argo-rollouts
+        - --excluded-namespace=tekton-pipelines
+        - --excluded-namespace=vault
+        - --excluded-namespace=traefik
+        - --excluded-namespace=external-secrets
+        - --excluded-namespace=cert-manager
+        - --enable-internal-cert-management
+        - --excluded-namespace=metallb
+        - --cert-restart-on-secret-refresh

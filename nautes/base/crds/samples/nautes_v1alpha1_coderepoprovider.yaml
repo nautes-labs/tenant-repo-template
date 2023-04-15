@@ -1,0 +1,6 @@
+apiVersion: nautes.resource.nautes.io/v1alpha1
+kind: CodeRepoProvider
+metadata:
+  name: coderepoprovider-sample
+spec:
+  # TODO(user): Add fields here

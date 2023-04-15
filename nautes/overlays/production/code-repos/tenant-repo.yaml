@@ -1,0 +1,15 @@
+apiVersion: nautes.resource.nautes.io/v1alpha1
+kind: CodeRepo
+metadata:
+  labels:
+    coderepo.resource.nautes.io/tenant-management: {{ tenant_name }}
+  name: repo-{{ tenant_repo_id }}
+  namespace: nautes
+spec:
+  codeRepoProvider: ""
+  deploymentRuntime: false
+  pipelineRuntime: false
+  product: ""
+  project: ""
+  repoName: ""
+  url: {{ tenant_repo_ssh_addr }}

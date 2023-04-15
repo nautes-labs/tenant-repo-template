@@ -1,0 +1,10 @@
+apiVersion: nautes.resource.nautes.io/v1alpha1
+kind: CodeRepoProvider
+metadata:
+  name: argo-coderepoprovider-test
+  namespace: nautes
+spec:
+  apiserver: https://gitlab.bluzin.io/nautes-labs/api/v4
+  httpsAddress: https://gitlab.bluzin.io
+  providerType: gitlab
+  sshAddress: ssh://git@gitlab.bluzin.io:2222
