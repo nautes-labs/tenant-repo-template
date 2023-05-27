@@ -4,4 +4,3 @@ resources:
 - ../../base
 patchesStrategicMerge:
 - configmap-feature-flags-patch.yaml
-- configmap-config-registry-cert-patch.yaml
