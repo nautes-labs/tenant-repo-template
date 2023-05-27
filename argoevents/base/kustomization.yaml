@@ -2,6 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - namespace.yaml
-- install.yaml
-- install-validating-webhook.yaml
+- install-v1.7.1.yaml
+- install-validating-webhook-v1.7.1.yaml
 namespace: argo-events
