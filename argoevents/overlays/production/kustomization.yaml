@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
 - ../../base
 - eventbus.yaml
+- nautes-sa.yaml
 namespace: argo-events
