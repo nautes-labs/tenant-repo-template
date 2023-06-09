@@ -1,7 +1,7 @@
 # Tenant Repo Template
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![version](https://img.shields.io/badge/version-v0.2.0-green)]()
+[![version](https://img.shields.io/badge/version-v0.3.1-green)]()
 
 Tenant Repo Template 提供了创建租户配置库时所需的一组模板文件，这些模板目前是在[安装程序](https://github.com/nautes-labs/installer)中被使用到。
 
