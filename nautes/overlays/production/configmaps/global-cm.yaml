@@ -7,7 +7,7 @@ data:
   config: |
     nautes:
       tenantName: "{{ tenant_name }}"
-      runtimeTemplateSource: "{{ runtime_template_source }}"
+      runtimeTemplateSource: "{{ repos.cluster_template.url }}"
     OAuth:
       OAuthType: "dex"
       issuer: "{{ oauth_url }}"

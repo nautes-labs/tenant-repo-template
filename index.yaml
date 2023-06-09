@@ -1,0 +1,16 @@
+templates:
+- ./nautes/base/crds/default/manager_image_patch.yaml
+- ./nautes/base/argo-operator/default/manager_image_patch.yaml
+- ./nautes/base/base-operator/default/manager_image_patch.yaml
+- ./nautes/base/runtime-operator/default/manager_image_patch.yaml
+- ./nautes/base/api-server/deploy/deployment.yaml
+- ./nautes/base/cluster-operator/default/manager_image_patch.yaml
+- ./nautes/overlays/production/configmaps/global-cm.yaml
+- ./nautes/overlays/production/code-repos/tenant-repo.yaml
+- ./nautes/overlays/production/code-repo-providers/provider.yaml
+- ./tenant/production/nautes-app.yaml
+- ./argocd/overlays/production/ssh_know_host.yaml
+- ./dex/overlays/production/issuer-ca.yaml
+- ./dex/overlays/production/ingress-dex.yaml
+- ./external-secrets/overlays/production/secret-ca.yaml
+ 
