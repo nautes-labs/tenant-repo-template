@@ -12,8 +12,12 @@ rules:
   - configmaps
   verbs:
   - create
+  - delete
   - get
   - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - ""
   resources:
@@ -42,6 +46,9 @@ rules:
   - nautes.resource.nautes.io
   resources:
   - clusters
+  - deploymentruntimes
+  - environments
+  - projectpipelineruntimes
   verbs:
   - create
   - delete
