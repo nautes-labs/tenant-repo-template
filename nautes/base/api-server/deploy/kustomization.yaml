@@ -7,4 +7,5 @@ resources:
 - role.yaml
 - rolebinding.yaml
 - service_account.yaml
+- service.yaml
 namespace: nautes

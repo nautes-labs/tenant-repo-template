@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nautes
+  name: "{{ tenant_name }}"
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -19,7 +19,7 @@ spec:
     - /data
   destination:
     server: https://kubernetes.default.svc
-    namespace: nautes
+    namespace: "{{ nautes.namespace }}"
   syncPolicy:
     automated:
       selfHeal: true

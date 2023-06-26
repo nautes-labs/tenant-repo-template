@@ -2,11 +2,11 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nautes-configs
-  namespace: nautes
 data:
   config: |
     nautes:
       tenantName: "{{ tenant_name }}"
+      namespace: "{{ nautes.namespace }}"
       runtimeTemplateSource: "{{ repos.cluster_template.url }}"
     OAuth:
       OAuthType: "dex"
@@ -17,6 +17,13 @@ data:
       addr: "{{ gitlab_external_url }}"
       gitType: gitlab
     secret:
+      operatorName:
+        Api: {{ nautes.secret_roles.api }}
+        Argo: {{ nautes.secret_roles.argo }}
+        Base: {{ nautes.secret_roles.base }}
+        Cluster: {{ nautes.secret_roles.cluster }}
+        Repo: {{ nautes.secret_roles.repo }}
+        Runtime: {{ nautes.secret_roles.runtime }}
       vault:
         mountPath: "{{ tenant_name }}"
         addr: "{{ vault_url }}"

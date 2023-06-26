@@ -4,7 +4,6 @@ metadata:
   labels:
     coderepo.resource.nautes.io/tenant-management: {{ tenant_name }}
   name: repo-{{ tenant_repo_id }}
-  namespace: nautes
 spec:
   codeRepoProvider: ""
   deploymentRuntime: false

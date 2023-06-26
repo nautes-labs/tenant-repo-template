@@ -2,7 +2,6 @@ apiVersion: nautes.resource.nautes.io/v1alpha1
 kind: ProductProvider
 metadata:
   name: productprovider
-  namespace: nautes
 spec:
   name: gitlab-nautes
   type: coderepo
