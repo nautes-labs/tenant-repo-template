@@ -68,7 +68,7 @@ data:
               kind: ClusterTask
             params:
               - name: image
-                value: gcr.io/cloud-builders/kubectl@sha256:c373e04fcc64c448e6cf9ebdde6fe67bb8c10b0df682da9210e1e965606b3af6
+                value: ghcr.io/nautes-labs/kubectl:v1.27.3-alpine-v3.18-v2
               - name: script
                 value: |
                   SUFFIX=`openssl rand -hex 2`
