@@ -11,4 +11,4 @@ spec:
       containers:
       - name: manager
         args:
-        - "--global-config-namespace={{ nautes.namespace }}"
+        - "--global-config-namespace={{ nautes_namespace }}"

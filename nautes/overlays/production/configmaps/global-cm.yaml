@@ -6,8 +6,8 @@ data:
   config: |
     nautes:
       tenantName: "{{ tenant_name }}"
-      namespace: "{{ nautes.namespace }}"
-      runtimeTemplateSource: "{{ repos.cluster_template.url }}"
+      namespace: "{{ nautes_namespace }}"
+      runtimeTemplateSource: "{{ repos_cluster_template_url }}"
     OAuth:
       OAuthType: "dex"
       issuer: "{{ oauth_url }}"
@@ -18,12 +18,12 @@ data:
       gitType: gitlab
     secret:
       operatorName:
-        Api: {{ nautes.secret_roles.api }}
-        Argo: {{ nautes.secret_roles.argo }}
-        Base: {{ nautes.secret_roles.base }}
-        Cluster: {{ nautes.secret_roles.cluster }}
-        Repo: {{ nautes.secret_roles.repo }}
-        Runtime: {{ nautes.secret_roles.runtime }}
+        Api: {{ nautes_secret_roles.api }}
+        Argo: {{ nautes_secret_roles.argo }}
+        Base: {{ nautes_secret_roles.base }}
+        Cluster: {{ nautes_secret_roles.cluster }}
+        Repo: {{ nautes_secret_roles.repo }}
+        Runtime: {{ nautes_secret_roles.runtime }}
       vault:
         mountPath: "{{ tenant_name }}"
         addr: "{{ vault_url }}"

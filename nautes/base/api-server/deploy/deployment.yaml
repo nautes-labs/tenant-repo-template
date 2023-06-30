@@ -24,7 +24,7 @@ spec:
         args:
           - /app/manager
           - -conf=/data/conf
-          - -global-config-namespace={{ nautes.namespace }}
+          - -global-config-namespace={{ nautes_namespace }}
         lifecycle:
           postStart:
             exec:
