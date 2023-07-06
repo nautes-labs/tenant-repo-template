@@ -5,7 +5,6 @@ templates:
 - ./nautes/base/crds/default/manager_image_patch.yaml
 - ./nautes/base/kustomization.yaml
 - ./nautes/base/argo-operator/default/manager_args_patch.yaml
-- ./nautes/base/argo-operator/default/manager_auth_proxy_patch.yaml
 - ./nautes/base/argo-operator/default/manager_image_patch.yaml
 - ./nautes/base/base-operator/default/manager_args_patch.yaml
 - ./nautes/base/base-operator/default/manager_image_patch.yaml
@@ -17,6 +16,7 @@ templates:
 - ./nautes/base/cluster-operator/default/manager_image_patch.yaml
 - ./nautes/overlays/runtime/kustomization.yaml
 - ./nautes/overlays/production/kustomization.yaml
+- ./nautes/overlays/production/configmaps/nautes-tls-certs.yaml
 - ./nautes/overlays/production/configmaps/global-cm.yaml
 - ./nautes/overlays/production/code-repos/tenant-repo.yaml
 - ./nautes/overlays/production/code-repo-providers/provider.yaml

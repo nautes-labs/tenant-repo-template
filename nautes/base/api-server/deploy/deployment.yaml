@@ -44,6 +44,8 @@ spec:
           readOnly: true
         - name: api-server-log
           mountPath: /log
+        - name: nautes-tls-certs
+          mountPath: /opt/nautes/ssl/
         - name: ca-certs
           mountPath: /usr/local/share/ca-certificates/
       volumes:
@@ -60,6 +62,9 @@ spec:
               name: api-server-cert
           - secret:
               name: api-server-gitlab-ca
+      - name: nautes-tls-certs
+        configMap:
+          name: nautes-tls-certs
       - name: api-server-log
         persistentVolumeClaim:
           claimName: api-server-log
