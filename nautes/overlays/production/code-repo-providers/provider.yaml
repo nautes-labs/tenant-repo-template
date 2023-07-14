@@ -2,9 +2,8 @@ apiVersion: nautes.resource.nautes.io/v1alpha1
 kind: CodeRepoProvider
 metadata:
   name: gitlab-nautes
-  namespace: nautes
 spec:
-  apiServer: {{ gitlab_external_url }} 
-  httpAddress: {{ gitlab_external_url }}
+  apiServer: {{ git_external_url }} 
+  httpAddress: {{ git_external_url }}
   providerType: gitlab
-  sshAddress: {{ gitlab_ssh_addr }}
+  sshAddress: {{ git_ssh_addr }}

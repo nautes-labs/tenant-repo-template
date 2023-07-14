@@ -1,10 +1,22 @@
+## How to create index
+## Run the following command
+## grep -lr "{{" .| grep -v "index.yaml" |grep -v "nautes-runtime-trigger-templates.yaml" | xargs -i echo "- {}"
 templates:
 - ./nautes/base/crds/default/manager_image_patch.yaml
+- ./nautes/base/kustomization.yaml
+- ./nautes/base/argo-operator/default/manager_args_patch.yaml
 - ./nautes/base/argo-operator/default/manager_image_patch.yaml
+- ./nautes/base/base-operator/default/manager_args_patch.yaml
 - ./nautes/base/base-operator/default/manager_image_patch.yaml
+- ./nautes/base/runtime-operator/default/manager_args_patch.yaml
 - ./nautes/base/runtime-operator/default/manager_image_patch.yaml
+- ./nautes/base/api-server/deploy/service.yaml
 - ./nautes/base/api-server/deploy/deployment.yaml
+- ./nautes/base/cluster-operator/default/manager_args_patch.yaml
 - ./nautes/base/cluster-operator/default/manager_image_patch.yaml
+- ./nautes/overlays/runtime/kustomization.yaml
+- ./nautes/overlays/production/kustomization.yaml
+- ./nautes/overlays/production/configmaps/nautes-tls-certs.yaml
 - ./nautes/overlays/production/configmaps/global-cm.yaml
 - ./nautes/overlays/production/code-repos/tenant-repo.yaml
 - ./nautes/overlays/production/code-repo-providers/provider.yaml
@@ -13,4 +25,4 @@ templates:
 - ./dex/overlays/production/issuer-ca.yaml
 - ./dex/overlays/production/ingress-dex.yaml
 - ./external-secrets/overlays/production/secret-ca.yaml
- 
+

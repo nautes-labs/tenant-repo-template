@@ -2,24 +2,31 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nautes-configs
-  namespace: nautes
 data:
   config: |
     nautes:
       tenantName: "{{ tenant_name }}"
-      runtimeTemplateSource: "{{ repos.cluster_template.url }}"
+      namespace: "{{ nautes_namespace }}"
+      runtimeTemplateSource: "{{ repos_cluster_template_url }}"
     OAuth:
       OAuthType: "dex"
       issuer: "{{ oauth_url }}"
       clientID: "nautes"
       clientSecret: "{{ dex_client_secret }}"
     git:
-      addr: "{{ gitlab_external_url }}"
+      addr: "{{ git_external_url }}"
       gitType: gitlab
     secret:
+      operatorName:
+        Api: {{ nautes_secret_roles.api }}
+        Argo: {{ nautes_secret_roles.argo }}
+        Base: {{ nautes_secret_roles.base }}
+        Cluster: {{ nautes_secret_roles.cluster }}
+        Repo: {{ nautes_secret_roles.repo }}
+        Runtime: {{ nautes_secret_roles.runtime }}
       vault:
         mountPath: "{{ tenant_name }}"
         addr: "{{ vault_url }}"
         proxyAddr: "{{ vault_proxy_url }}"
         CABundle: |
-{{ ca_info | indent( width=10, indentfirst=True) }}
+{{ sec_ca | indent( width=10, indentfirst=True) }}

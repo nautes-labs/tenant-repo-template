@@ -5,4 +5,4 @@ metadata:
   namespace: dex
 type: Opaque
 data:
-  ca.crt: {{ ca_info | b64encode }}
+  ca.crt: {{ git_ca | b64encode }}
