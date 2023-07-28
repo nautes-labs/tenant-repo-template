@@ -4,3 +4,4 @@ resources:
 - global-cm.yaml
 - nautes-runtime-trigger-templates.yaml
 - nautes-tls-certs.yaml
+- third-part-components.yaml
