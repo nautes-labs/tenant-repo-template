@@ -48,6 +48,8 @@ spec:
           mountPath: /opt/nautes/ssl/
         - name: ca-certs
           mountPath: /usr/local/share/ca-certificates/
+        - name: third-part-components
+          mountPath: /opt/nautes/thirdPartComponents
       volumes:
       - name: resources-layout
         configMap:
@@ -70,3 +72,10 @@ spec:
           claimName: api-server-log
       - name: ca-certs
         emptyDir: {}
+      - name: third-part-components
+        configMap:
+          name: third-part-components
+          items:
+          - key: thirdPartComponents
+            path: thirdPartComponents.yaml
+
