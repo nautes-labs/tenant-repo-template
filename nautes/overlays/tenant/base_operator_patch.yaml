@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controller-manager
+spec:
+  template:
+    spec:
+      containers:
+      - name: manager
+        volumeMounts:
+          - name: ca
+            mountPath: "/ca/ca.crt"
+            subPath: ca.crt
+            readOnly: true
+      volumes:
+        - name: ca
+          secret:
+            secretName: global-ca
+

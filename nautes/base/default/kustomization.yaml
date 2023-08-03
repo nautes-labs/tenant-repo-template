@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Adds namespace to all resources.
+namespace: nautes
+
+resources:
+- ../crd
+- ../apps/overlays/api-server
+- ../apps/overlays/argo-operator
+- ../apps/overlays/base-operator
+- ../apps/overlays/cluster-operator
+- ../apps/overlays/runtime-operator
+- ../apps/overlays/webhook
+
+images:
+- name: controller
+  newName: ghcr.io/nautes-labs/nautes
+  newTag: latest

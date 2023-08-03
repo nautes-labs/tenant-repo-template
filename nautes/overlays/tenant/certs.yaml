@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: certs
+  namespace: nautes
+type: Opaque
+data:
+  {{ git_http_domain }}.crt: |
+{{ git_ca | indent( width=4, indentfirst=True) }}
+  {{ vault_domain }}.crt: |
+{{ vault_ca | indent( width=4, indentfirst=True) }}
+  {{ vault_proxy_domain }}.crt: |
+{{ vault_ca | indent( width=4, indentfirst=True) }}

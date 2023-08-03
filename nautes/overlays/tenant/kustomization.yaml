@@ -1,8 +1,42 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+namespace: {{ nautes_namespace }}
+
 resources:
-- ../../../cert-manager/overlays/production
-- ../../../dex/overlays/production
-- ../../../reloader/overlays/production
-- ../../base
+- ../../base/default
 - ../production
+- api_server_ingress.yaml
+- certs.yaml
+
+patches:
+- path: ../production/configmaps/global-cm.yaml
+  target:
+    kind: ConfigMap
+    labelSelector: nautes-configs=true
+- path: api_server_patch.yaml
+  target:
+    kind: Deployment
+    labelSelector: control-plane=api-server
+- path: argo_operator_patch.yaml
+  target:
+    kind: Deployment
+    labelSelector: control-plane=argo-operator
+- path: base_operator_patch.yaml
+  target:
+    kind: Deployment
+    labelSelector: control-plane=base-operator
+- path: cluster_operator_patch.yaml
+  target:
+    kind: Deployment
+    labelSelector: control-plane=cluster-operator
+- path: runtime_operator_patch.yaml
+  target:
+    kind: Deployment
+    labelSelector: control-plane=runtime-operator
+
+images:
+- name: ghcr.io/nautes-labs/nautes
+  newName: {{ image_name }}
+  newTag: {{ image_version }}
+
