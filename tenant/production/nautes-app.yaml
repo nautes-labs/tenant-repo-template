@@ -8,7 +8,7 @@ metadata:
 spec:
   project: {{ tenant_name }}
   source:
-    path: nautes/overlays/tenant
+    path: tenant/runtime
     repoURL: {{ tenant_repo_ssh_addr }}
     targetRevision: HEAD
   ignoreDifferences:
