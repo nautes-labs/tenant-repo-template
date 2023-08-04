@@ -41,6 +41,6 @@ patches:
 
 images:
 - name: ghcr.io/nautes-labs/nautes
-  newName: {{ image_name }}
+  newName: {{ nautes_image_name }}
   newTag: {{ image_version }}
 
