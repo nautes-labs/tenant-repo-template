@@ -8,10 +8,10 @@ spec:
       containers:
       - name: manager
         volumeMounts:
-          - name: vault-proxy-client
-            mountPath: "/opt/nautes/keypair"
+          - name: remote-certs
+            mountPath: "/opt/nautes/cert/"
       volumes:
-        - name: vault-proxy-client
+        - name: remote-certs
           secret:
-            secretName: runtime-keypair
+            secretName: remote-certs
 

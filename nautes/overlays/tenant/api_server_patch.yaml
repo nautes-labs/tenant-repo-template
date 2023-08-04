@@ -1,15 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: controller-manager
+  name: server
 spec:
   template:
     spec:
       containers:
       - name: manager
         volumeMounts:
-          - name: certs
-            mountPath: "/opt/nautes/CAs/"
           - name: vault-proxy-client
             mountPath: "/opt/nautes/keypair/client.crt"
             subPath: apiserver.crt
@@ -17,9 +15,6 @@ spec:
             mountPath: "/opt/nautes/keypair/client.key"
             subPath: apiserver.key
       volumes:
-        - name: certs
-          secret:
-            secretName: certs
         - name: vault-proxy-client
           secret:
             secretName: api-server-cert

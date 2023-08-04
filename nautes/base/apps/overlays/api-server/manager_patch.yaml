@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: controller-manager
+  name: server
   namespace: system
 spec:
   template:
@@ -12,8 +12,8 @@ spec:
         readinessProbe:
         env:
         - name: RESOURCES_LAYOUT
-          value: /opt/nautes/configs/resources_layout.yaml
+          value: /opt/nautes/config/resources_layout.yaml
         command:
         - "bin/api-server"
         - "-conf"
-        - "./configs/config.yaml"
+        - "./config/config.yaml"

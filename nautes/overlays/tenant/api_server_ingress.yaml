@@ -5,7 +5,7 @@ metadata:
   namespace: nautes
 spec:
   rules:
-  - host: "apiserver.192.168.75.130.nip.io"
+  - host: "{{ nautes_api_server_domain }}"
     http:
       paths:
       - path: /

@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: certs
+  name: remote-certs
   namespace: nautes
 type: Opaque
 data:
   {{ git_http_domain }}.crt: |
-{{ git_ca | indent( width=4, indentfirst=True) }}
-  {{ vault_domain }}.crt: |
-{{ vault_ca | indent( width=4, indentfirst=True) }}
-  {{ vault_proxy_domain }}.crt: |
-{{ vault_ca | indent( width=4, indentfirst=True) }}
+{{ git_ca | b64encode | indent( width=4, indentfirst=True) }}
+  {{ vault_domain }}_{{ vault_port }}.crt: |
+{{ sec_ca | b64encode | indent( width=4, indentfirst=True) }}
+  {{ vault_domain }}_{{ vault_proxy_port }}.crt: |
+{{ sec_ca | b64encode | indent( width=4, indentfirst=True) }}
+

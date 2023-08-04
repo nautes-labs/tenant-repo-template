@@ -1,12 +1,11 @@
 ## How to create index
 ## Run the following command
-## grep -lr "{{" .| grep -v "index.yaml" |grep -v "trigger_templates.yaml" | xargs -i echo "- {}"
+## grep -lr "{{" .| grep -v "index.yaml" |grep -v "trigger_templates.yaml" |grep -v "nautes-runtime-trigger-templates.yaml" | grep -v ".git"  | xargs -i echo "- {}"
 templates:
 - ./nautes/overlays/runtime/kustomization.yaml
 - ./nautes/overlays/tenant/kustomization.yaml
 - ./nautes/overlays/tenant/certs.yaml
 - ./nautes/overlays/production/kustomization.yaml
-- ./nautes/overlays/production/configmaps/nautes-runtime-trigger-templates.yaml
 - ./nautes/overlays/production/configmaps/global-cm.yaml
 - ./nautes/overlays/production/code-repos/tenant-repo.yaml
 - ./nautes/overlays/production/code-repo-providers/provider.yaml
