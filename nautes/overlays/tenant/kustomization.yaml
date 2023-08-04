@@ -40,7 +40,7 @@ patches:
     labelSelector: control-plane=runtime-operator
 
 images:
-- name: ghcr.io/nautes-labs/nautes
+- name: controller
   newName: {{ nautes_image_name }}
   newTag: {{ image_version }}
 
