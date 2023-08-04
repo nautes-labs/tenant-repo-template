@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: controller-manager
+  name: server
   namespace: system
 spec:
   template:
@@ -10,7 +10,7 @@ spec:
       - name: manager
         volumeMounts:
         - name: configs
-          mountPath: /opt/nautes/configs
+          mountPath: /opt/nautes/config
       volumes:
       - name: configs
         configMap:

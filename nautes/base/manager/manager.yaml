@@ -1,10 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: controller-manager
+  name: server
   namespace: system
   labels:
     control-plane: controller-manager
+    nautes-app: true
 spec:
   selector:
     matchLabels:
@@ -47,5 +48,5 @@ spec:
           requests:
             cpu: 10m
             memory: 64Mi
-      serviceAccountName: controller-manager
+      serviceAccountName: server
       terminationGracePeriodSeconds: 10
