@@ -4,8 +4,8 @@
 templates:
 - ./nautes/overlays/runtime/kustomization.yaml
 - ./nautes/overlays/tenant/kustomization.yaml
+- ./nautes/overlays/tenant/api_server_ingress.yaml
 - ./nautes/overlays/tenant/certs.yaml
-- ./nautes/overlays/production/kustomization.yaml
 - ./nautes/overlays/production/configmaps/global-cm.yaml
 - ./nautes/overlays/production/code-repos/tenant-repo.yaml
 - ./nautes/overlays/production/code-repo-providers/provider.yaml
@@ -14,3 +14,4 @@ templates:
 - ./dex/overlays/production/issuer-ca.yaml
 - ./dex/overlays/production/ingress-dex.yaml
 - ./external-secrets/overlays/production/secret-ca.yaml
+

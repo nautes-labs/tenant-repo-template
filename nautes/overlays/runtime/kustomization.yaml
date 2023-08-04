@@ -17,7 +17,7 @@ patches:
     labelSelector: nautes-configs=true
 
 images:
-- name: ghcr.io/nautes-labs/nautes
+- name: controller
   newName: {{ nautes_image_name }}
   newTag: {{ image_version }}
 
