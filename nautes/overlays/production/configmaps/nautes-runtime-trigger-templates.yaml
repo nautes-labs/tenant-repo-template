@@ -8,7 +8,7 @@ data:
     kind: PipelineRun
     metadata:
       generateName: init-pipiline-
-      namespace: {{ .runtimeName }}
+      namespace: {{ .runtimeNamespaceName }}
     spec:
       params:
         - name: PIPELINE-REVISION
@@ -93,7 +93,7 @@ data:
                   {{- end }}
                   EOF
                   cat ./kustomization.yaml
-                  kubectl kustomize . | kubectl -n {{ .runtimeName }} create -f -
+                  kubectl kustomize . | kubectl -n {{ .runtimeNamespaceName }} create -f -
             workspaces:
               - name: manifest-dir
                 workspace: source-volume
