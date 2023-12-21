@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rule-engine-rules
+  namespace: system
+data:
+  event_source_path.grl: |
+    rule GitlabArgoEventsCommitID "Gitlab | Argo-Event | CommitID" {
+      when
+        req.Filter.EventSourceType == "gitlab" &&
+        req.Filter.EventListenerType == "argo-events" &&
+        req.Filter.RequestVar == "commitID"
+      then
+        req.Result = "body.after";
+        Retract("GitlabArgoEventsCommitID");
+    }
+
+    rule GitlabArgoEventsRef "Gitlab | Argo-Event | Ref" {
+       when
+         req.Filter.EventSourceType == "gitlab" &&
+         req.Filter.EventListenerType == "argo-events" &&
+         req.Filter.RequestVar == "ref"
+       then
+         req.Result = "default.ref";
+         Retract("GitlabArgoEventsRef");
+    }
+
+    rule GitlabArgoEventsTargetBranch "Gitlab | Argo-Event | MergeRequest | TargetBranch" {
+       when
+         req.Filter.EventSourceType == "gitlab" &&
+         req.Filter.EventType == "merge_requests_events" &&
+         req.Filter.EventListenerType == "argo-events" &&
+         req.Filter.RequestVar == "target_branch"
+       then
+         req.Result = "body.object_attributes.target_branch";
+         Retract("GitlabArgoEventsTargetBranch");
+    }
+
+    rule GitlabArgoEventsSourceBranch "Gitlab | Argo-Event | MergeRequest | SourceBranch" {
+       when
+         req.Filter.EventSourceType == "gitlab" &&
+         req.Filter.EventType == "merge_requests_events" &&
+         req.Filter.EventListenerType == "argo-events" &&
+         req.Filter.RequestVar == "source_branch"
+       then
+         req.Result = "body.object_attributes.source_branch";
+         Retract("GitlabArgoEventsSourceBranch");
+    }
+
+    rule GitlabArgoEventsMergeRequestStatus "Gitlab | Argo-Event | MergeRequest | Status" {
+       when
+         req.Filter.EventSourceType == "gitlab" &&
+         req.Filter.EventType == "merge_requests_events" &&
+         req.Filter.EventListenerType == "argo-events" &&
+         req.Filter.RequestVar == "state"
+       then
+         req.Result = "body.object_attributes.state_id";
+         Retract("GitlabArgoEventsMergeRequestStatus");
+    }
+
+    rule GitlabArgoEventsMergeRequestLabels "Gitlab | Argo-Event | MergeRequest | Labels" {
+       when
+         req.Filter.EventSourceType == "gitlab" &&
+         req.Filter.EventType == "merge_requests_events" &&
+         req.Filter.EventListenerType == "argo-events" &&
+         req.Filter.RequestVar == "labels"
+       then
+         req.Result = "body.object_attributes.labels";
+         Retract("GitlabArgoEventsMergeRequestLabels");
+    }
+
+    rule GitlabArgoEventsTitle "Gitlab | Argo-Event | MergeRequest | Title" {
+       when
+         req.Filter.EventSourceType == "gitlab" &&
+         req.Filter.EventType == "merge_requests_events" &&
+         req.Filter.EventListenerType == "argo-events" &&
+         req.Filter.RequestVar == "title"
+       then
+         req.Result = "body.object_attributes.title";
+         Retract("GitlabArgoEventsTitle");
+    }
