@@ -14,6 +14,10 @@ patches:
   target:
     kind: ConfigMap
     labelSelector: nautes-configs=true
+- path: ../production/configmaps/middleware-metadata.yaml
+  target:
+    kind: ConfigMap
+    labelSelector: nautes-configs=true
 - path: cert_patch.yaml
   target:
     kind: Deployment

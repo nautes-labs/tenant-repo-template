@@ -14,6 +14,10 @@ spec:
             readOnly: true
           - name: vault-proxy-client
             mountPath: "/opt/nautes/keypair"
+          - name: middleware-transform-rules
+            mountPath: "/opt/nautes/middleware-transform-rules"
+          - name: resource-transform-rules
+            mountPath: "/opt/nautes/resource-transform-rules"
       volumes:
         - name: ca
           secret:
@@ -21,4 +25,9 @@ spec:
         - name: vault-proxy-client
           secret:
             secretName: runtime-keypair
-
+        - name: middleware-transform-rules
+          configMap:
+            name: middleware-transform-rules
+        - name: resource-transform-rules
+          configMap:
+            name: resource-transform-rules

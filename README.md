@@ -20,3 +20,4 @@ Tenant Repo Template 包含以下内容：
 - reloader：包含 Reloader 的基础安装文件。
 - tenant：包含租户管理集群自身需要安装的组件的 ArgoCD Application。
 - traefik：包含一个默认的 ServersTransport 资源文件。
+- operator-lifecycle-manager: 包含 Operator Lifecycle Manager 的安装组件和 operater 的安装配置。

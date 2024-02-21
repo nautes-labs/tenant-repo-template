@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: middleware-transform-rules
+data:
+  redis-operator.yaml: |
+    providerType: operatorhub
+    middlewareType: redis
+    implementation: redis-operator
+    resources: |
+      metadata:
+        name: {{ .Name }}
+        type: redis-instance
+      dependencies:
+      - name: svc-{{ .Name }}
+        type: secret
+      spec:
+        deployType: {{ .Redis.DeployType }}
+        nodeNumber: {{ .Redis.NodeNumber }}
+        version: {{ .Redis.Version }}
+        storageSize: {{ .Redis.Storage.Size }}
+        initPasswordSecretName: "sec-{{ .Name }}"
+        secretKey: password
+      ---
+      metadata:
+        name: svc-{{ .Name }}
+        type: service
+      spec:
+        serviceType: NodePort
+        exportPort: {{ .Entrypoint.Port }}
+        selectValue: {{ .Name }}
+      ---
+      metadata:
+        name: sec-{{ .Name }}
+        type: secret
+        isSensitiveResource: true
+      sensitiveSpec:
+        password: {{ .InitAccessInfo.UserPassword.Password }}
